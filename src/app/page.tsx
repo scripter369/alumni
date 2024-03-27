@@ -143,6 +143,42 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <div className="bg-white rounded-xl m-5 my-12 md:my-20 p-5 flex justify-evenly items-center">
+          <div className="flex flex-col items-center w-[30%] rounded-xl justify-center">
+            <div className="rounded-full p-1 w-fit border-2">
+              <img
+                src="https://ik.imagekit.io/xji6otwwkb/Alumni/director.jpg?updatedAt=1711513608990"
+                className="object-cover h-[12rem] w-[12rem] rounded-full"
+                alt=""
+              />
+            </div>
+            <p className="text-xl font-semibold">Mr. Vimal Mishra</p>
+            <p className="text-lg font-semibold">Director</p>
+          </div>
+          <div className="flex flex-col items-center w-[30%] rounded-xl justify-center">
+            <div className="rounded-full p-1 w-fit border-2">
+              <img
+                src="https://ik.imagekit.io/xji6otwwkb/Alumni/WhatsApp%20Image%202024-03-26%20at%2022.19.21_bcad4c2f.jpg?updatedAt=1711512619194"
+                className="object-cover h-[12rem] w-[12rem] rounded-full"
+                alt=""
+              />
+            </div>
+            <p className="text-xl font-semibold">Mr. Deep Pandey</p>
+            <p className="text-lg font-semibold">Chaiperson</p>
+          </div>
+          <div className="flex flex-col items-center w-[30%] rounded-xl justify-center">
+            <div className="rounded-full p-1 w-fit border-2">
+              <img
+                src="https://ik.imagekit.io/xji6otwwkb/Alumni/WhatsApp%20Image%202024-03-26%20at%2022.19.40_70a3f233.jpg?updatedAt=1711513352155"
+                className="object-cover h-[12rem] w-[12rem] rounded-full"
+                alt=""
+              />
+            </div>
+            <p className="text-xl font-semibold">Mr. Ubaid Khan</p>
+            <p className="text-lg font-semibold">Deputy Chaiperson</p>
+          </div>
+        </div>
       </div>
 
       <ToastContainer

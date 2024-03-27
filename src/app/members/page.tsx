@@ -44,10 +44,10 @@ const Members = () => {
   // Getting Members Data
   useEffect(() => {
     const unsubscribe = onSnapshot(
-      query(collection(db, "users"), where("RegNo", "!=", 0)),
+      query(collection(db, "users")),
       (querySnapshot) =>
         querySnapshot.forEach((doc) =>
-          setFirstoreData((firstoreData) => [...firstoreData, doc.data()])
+          setFirstoreData((firstoreData: any) => [...firstoreData, doc.data()])
         )
     );
 
@@ -91,7 +91,8 @@ const Members = () => {
                 setMemberData(member);
               }}
               key={index}
-              className="bg-white cursor-pointer p-5 w-72 h-96 rounded-xl space-y-6">
+              className="bg-white cursor-pointer p-5 w-72 h-96 rounded-xl space-y-6"
+            >
               <Image
                 src={member.photoURL}
                 alt="user-avatar"
@@ -104,7 +105,7 @@ const Members = () => {
                 {member.displayName}
               </p>
               <div className="flex font-semibold text-lg justify-between items-center">
-                <span>{member.serviceField}</span>
+                <span>{member.branch}</span>
                 <span>{member.phoneNo}</span>
               </div>
             </div>

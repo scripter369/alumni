@@ -31,7 +31,13 @@ const Register = () => {
     photoURL: "",
   };
 
-  const [details, setDetails] = useState(initialValues);
+  const [details, setDetails] = useState({
+    phn: "",
+    desg: "",
+    branch: "",
+    year: "",
+    photoURL: "",
+  });
 
   //Adding Details of User
   const add = async () => {
@@ -47,6 +53,8 @@ const Register = () => {
           phoneNo: details.phn,
           branch: details.branch,
           year: details.year,
+          photoURL:
+            "https://ik.imagekit.io/xji6otwwkb/Profile.png?updatedAt=1680849745697",
           role: "user",
         });
         setDetails(initialValues);
@@ -55,6 +63,7 @@ const Register = () => {
           setPhotoDetail(true);
         }, 1500);
         toast.success("Details Saved Succesfully");
+        router.push("/");
       }
     } catch (error: any) {
       toast.error(error.message);
@@ -63,7 +72,9 @@ const Register = () => {
     }
   };
 
-  const handleChange = async (e) => {
+  const handleChange = async (e: {
+    target: { files: (Blob | MediaSource)[] };
+  }) => {
     setImage1(e.target.files[0]);
     setAvatar(URL.createObjectURL(e.target.files[0]));
   };
@@ -115,7 +126,7 @@ const Register = () => {
         router.push("/");
       }, 10000);
       setInterval(() => {
-        setTimer((t) => t - 1 / 2);
+        setTimer((t: number) => t - 1 / 2);
       }, 1000);
     }
   }, [router]);
@@ -145,9 +156,9 @@ const Register = () => {
           placeholder="Enter Mobile No..."
           required
           className="text-lg md:text-xl text-[#000081] ring-0 outline-0 border border-neutral-500 placeholder-[#000081] rounded-lg focus:ring-[#000081] w-2/3 focus:border-[#000081] p-2.5"
-          value={registerForm.name}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, name: e.target.value })
+          value={details.phn}
+          onChange={(e: { target: { value: any } }) =>
+            setDetails({ ...details, phn: e.target.value })
           }
         />
 
@@ -158,9 +169,9 @@ const Register = () => {
           placeholder="Enter Your Passing Year..."
           required
           className="text-lg md:text-xl text-[#000081] ring-0 outline-0 border border-neutral-500 placeholder-[#000081] rounded-lg focus:ring-[#000081] w-2/3 focus:border-[#000081] p-2.5"
-          value={registerForm.name}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, name: e.target.value })
+          value={details.year}
+          onChange={(e: { target: { value: any } }) =>
+            setDetails({ ...details, year: e.target.value })
           }
         />
 
@@ -171,14 +182,22 @@ const Register = () => {
           placeholder="Enter Your Branch..."
           required
           className="text-lg md:text-xl text-[#000081] ring-0 outline-0 border border-neutral-500 placeholder-[#000081] rounded-lg focus:ring-[#000081] w-2/3 focus:border-[#000081] p-2.5"
-          value={registerForm.name}
-          onChange={(e) =>
-            setRegisterForm({ ...registerForm, name: e.target.value })
+          value={details.branch}
+          onChange={(e: { target: { value: any } }) =>
+            setDetails({ ...details, branch: e.target.value })
           }
         />
 
+        <div className="flex justify-center items-center p-2 bg-white rounded-xl">
+          <img
+            src="https://ik.imagekit.io/xji6otwwkb/Alumni/qr.jpg?updatedAt=1711513352173"
+            alt=""
+            className="h-[18rem] w-[18rem] object-cover rounded-xl"
+          />
+        </div>
+
         <button
-          type="submit"
+          onClick={() => add()}
           className="w-full md:w-2/3 text-lg md:text-xl py-4 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-md focus:outline-none transition duration-150 ease-in-out"
         >
           Submit

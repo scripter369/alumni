@@ -72,12 +72,12 @@ const Register = () => {
     }
   };
 
-  const handleChange = async (e: {
-    target: { files: (Blob | MediaSource)[] };
-  }) => {
-    setImage1(e.target.files[0]);
-    setAvatar(URL.createObjectURL(e.target.files[0]));
-  };
+  // const handleChange = async (e: {
+  //   target: { files: (Blob | MediaSource)[] };
+  // }) => {
+  //   setImage1(e.target.files[0]);
+  //   setAvatar(URL.createObjectURL(e.target.files[0]));
+  // };
 
   //Giving Registration Number
   useEffect(() => {
@@ -92,29 +92,29 @@ const Register = () => {
     });
   }, []);
 
-  const photo = async () => {
-    try {
-      setLoading(true);
-      if (image1) {
-        const imageRef = ref(storage, `Photo/${payload.displayName}`);
-        await uploadBytes(imageRef, image1);
-        var url = await getDownloadURL(imageRef);
-      } else var url = avatar;
+  // const photo = async () => {
+  //   try {
+  //     setLoading(true);
+  //     if (image1) {
+  //       const imageRef = ref(storage, `Photo/${payload.displayName}`);
+  //       await uploadBytes(imageRef, image1);
+  //       var url = await getDownloadURL(imageRef);
+  //     } else var url = avatar;
 
-      await updateDoc(doc(db, "users", payload.email), {
-        RegNo: regNo1 + 1,
-        photoURL: url,
-      });
+  //     await updateDoc(doc(db, "users", payload.email), {
+  //       RegNo: regNo1 + 1,
+  //       photoURL: url,
+  //     });
 
-      toast.success("Photo Uploaded Succesfully");
-    } catch (error: any) {
-      toast.error(error.message);
-    }
-    setAvatar(
-      "https://ik.imagekit.io/xji6otwwkb/Profile.png?updatedAt=1680849745697"
-    );
-    setLoading(false);
-  };
+  //     toast.success("Photo Uploaded Succesfully");
+  //   } catch (error: any) {
+  //     toast.error(error.message);
+  //   }
+  //   setAvatar(
+  //     "https://ik.imagekit.io/xji6otwwkb/Profile.png?updatedAt=1680849745697"
+  //   );
+  //   setLoading(false);
+  // };
 
   useEffect(() => {
     const registerUser = localStorage.getItem("registerPayload");

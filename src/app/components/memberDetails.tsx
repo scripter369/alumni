@@ -7,7 +7,6 @@ interface Props {
   isMember: boolean;
   setIsMember: (isMember: boolean) => void;
   memberData: member;
-  isAdmin: boolean;
 }
 
 const MemberDetails: React.FC<Props> = ({
@@ -30,10 +29,6 @@ const MemberDetails: React.FC<Props> = ({
       >
         <div className="space-y-8">
           <div className="select-none space-y-12">
-            <p className="underline underline-offset-4 text-xl lg:text-2xl font-semibold text-center">
-              {isAdmin ? `Registration No : ${memberData?.RegNo}` : "Alumni"}
-            </p>
-
             <div className="flex justify-evenly items-center w-full">
               <div className="space-y-4">
                 <p className="text-xl lg:text-2xl font-semibold break-words flex-wrap w-96">
